@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const name = "John";
+  const isRegistered = false;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Hello, {isRegistered ? name : 'Unknown'}!</h3>
+
+      {name ? (<><p>Test Fragment</p></>) : <p>Test</p>}
+
+      <Person name={'John'} lastName='Wick' age={30 + 5} />
+      <Person />
     </div>
+  );
+}
+
+// Person Component
+const Person = (props) => {
+
+  return (
+    <>
+      <p>Name: {props['name'] ? props['name'] : 'Unknown'}</p>
+      <p>Last Name: {props['lastName']}</p>
+      <p>Age: {props['age']}</p>
+    </>
+
   );
 }
 
