@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 const App = () => {
@@ -7,6 +7,11 @@ const App = () => {
   const isRegistered = false;
 
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // setCount(100);
+    alert('You have changed count');
+  }, [count]) // Array of variables to monitor
 
   return (
     <div className="App">
