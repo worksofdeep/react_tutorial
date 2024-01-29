@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 const App = () => {
@@ -5,14 +6,13 @@ const App = () => {
   const name = "John";
   const isRegistered = false;
 
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
-      <h3>Hello, {isRegistered ? name : 'Unknown'}!</h3>
-
-      {name ? (<><p>Test Fragment</p></>) : <p>Test</p>}
-
-      <Person name={'John'} lastName='Wick' age={30 + 5} />
-      <Person />
+      <button onClick={() => { setCount((prevCount) => prevCount - 1) }}>-</button>
+      <h3>{count}</h3>
+      <button onClick={() => { setCount((prevCount) => prevCount + 1) }}>+</button>
     </div>
   );
 }
